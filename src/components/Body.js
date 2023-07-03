@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import ResturentCard from "./ResturentCard"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
+import useOnlineStatus from "../utils/useOnlineStatus"
 
 const Body=()=>{
     let [restaurantList,setResturentList]=useState([])
@@ -25,6 +26,13 @@ let fetchData=async()=>{
     setFilterResturent(json?.data?.cards[2]?.data?.data?.cards)
 
 }
+
+//checking online status
+const onlineStatus=useOnlineStatus()
+console.log("online",onlineStatus)
+if(onlineStatus===false) return <h1>looks like your inter is gone check your internet connection</h1>
+
+
 if(restaurantList.length===0){
     return <Shimmer/>
 }
