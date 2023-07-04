@@ -7,9 +7,9 @@ import useOnlineStatus from "../utils/useOnlineStatus"
 const Header=()=>{
     let [loginButton,setLoginButton]=useState("Login")
     let onlineStatus=useOnlineStatus()
-    return <div className="header">
+    return <div className="flex justify-between ">
         <div className="logo-container">
-            <img className="img" src={LOGO_URL} alt="" />
+            <img className="w-24" src={LOGO_URL} alt="" />
         </div>
         <div className="navitems">
             <ul>

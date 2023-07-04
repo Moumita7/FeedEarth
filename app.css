@@ -1,11 +1,16 @@
-*{
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* *{
     margin: 0;
     padding: 0;
 }
 .header{
     padding: 0 15px;
     display: flex;
-    /* text-align: center; */
+
     align-items: center;
     background-color: aquamarine;
     justify-content: space-between;
@@ -13,7 +18,7 @@
 
 .img{
     width: 75px;
-    /* border: 1px solid red; */
+
 }
 .navitems{
     
@@ -23,13 +28,9 @@
     gap: 10px;
     list-style-type: none;
 }
-.navitems>ul>li{
-    /* list-style-type: none; */
-
-}
 
 
-/* body */
+
 
 .resturentCard{
     display: grid;
@@ -42,8 +43,7 @@
     border: 3px solid rgb(160, 157, 157);
     display: flex;
     flex-direction: column;
-    /* text-align: center; */
-    /* align-items: center; */
+
 }
 
 .shimmer-container{
@@ -56,4 +56,4 @@
     width: 250px;
     height: 250px;
     background-color: #f0f0f0;
-}
+} */

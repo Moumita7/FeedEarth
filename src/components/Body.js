@@ -20,7 +20,7 @@ console.log("body render")
 let fetchData=async()=>{
     let data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING")
     let json=await data.json()
-    console.log(json)
+    // console.log(json)
 //optional channing
     setResturentList(json?.data?.cards[2]?.data?.data?.cards)
     setFilterResturent(json?.data?.cards[2]?.data?.data?.cards)
@@ -29,11 +29,13 @@ let fetchData=async()=>{
 
 //checking online status
 const onlineStatus=useOnlineStatus()
-console.log("online",onlineStatus)
+// console.log("online",onlineStatus)
 if(onlineStatus===false) return <h1>looks like your inter is gone check your internet connection</h1>
 
 
-if(restaurantList.length===0){
+// if(restaurantList.length===0){
+if(restaurantList===[]){
+
     return <Shimmer/>
 }
 
