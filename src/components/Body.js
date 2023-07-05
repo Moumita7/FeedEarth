@@ -41,24 +41,28 @@ if(restaurantList===[]){
 
     return <div className="body">
    
-         <div className="cardBody" style={{padding:"10px"}}>
-         <div className="filter" style={{display:"flex",gap:"10px"}}>
-         <div className="search">
-         <input value={searchVal} onChange={(e)=>setSearchVal(e.target.value)} type="text" className="search-box" />
-         <button onClick={()=>{
+         <div className="cardBody" >
+         <div className="flex border items-center justify-center">
+         <div className="flex justify-center m-2" >
+         <input value={searchVal}
+          onChange={(e)=>setSearchVal(e.target.value)} type="text" className="border border-solid border-black" />
+         <button className="px-3  bg-red-500 caret-white rounded-sm"  onClick={()=>{
             let filterData=restaurantList.filter((res)=>res.data.name.toLowerCase().includes(searchVal.toLowerCase()))
             console.log("fil",filterData)
             setFilterResturent(filterData)
          }}>search</button>
 
          </div>
-         <button style={{padding:"2px"}} onClick={()=>{
-                setResturentList(restaurantList.filter((res)=>res.data.avgRating>4))
+         <div>
+         <button className="px-3  bg-red-500 caret-white rounded-sm"  onClick={()=>{
+               setFilterResturent(restaurantList.filter((res)=>res.data.avgRating>4))
             }}>Top Rated Resturents</button>
+         </div>
+        
          </div>
          
          </div>
-         <div className="resturentCard">
+         <div className="flex flex-wrap justify-center">
  
  {filterRestaurant.map((resturent)=>
  <Link key={resturent.data.id} to={"/resturent/"+resturent.data.id}>
