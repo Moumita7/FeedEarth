@@ -4,20 +4,22 @@ import React from 'react'
 import {useState} from "react"
 const Section=({description,title,isVisible,setIsVisible,setIsVisiblet})=>{
 
-  console.log("isvis",isVisible)
-  console.log("setvis",setIsVisible)
+  // console.log("isvis",isVisible)
+  // console.log("setvis",setIsVisible)
 
   // let [isVisible,setIsVisible]=useState(false)
   return (
     //my thinking
     <div className='border border-black p-2 m-2'>
     {isVisible?
-    <button onClick={()=>setIsVisible(false)} className='border border-black bg-orange-400 px-2'>Show</button>
-    :
-    <div>
-    <button  onClick={()=>setIsVisiblet(true)} className='border border-black bg-orange-400 px-2'>Hide</button>
+      <div>
+    <button  onClick={()=>setIsVisiblet(false)} className='border border-black bg-orange-400 px-2'>Hide</button>
     <h2>{description}</h2>
-    </div>}
+    </div>:
+    <button onClick={()=>setIsVisible(true)} className='border border-black bg-orange-400 px-2'>Show</button>
+    
+  
+    }
 </div>
   )}
 
@@ -48,21 +50,13 @@ const Grocery = () => {
 
          setIsVisible={()=>setVisibleIsSelecton("card2")}
       setIsVisiblet={()=>setVisibleIsSelecton(false)}
-
-       
-
-
       description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
       Voluptas, quae voluptate? Consequuntur quisquam unde debitis eaque placeat autem culpa totam! 
       Molestias porro labore autem vitae accusantium provident iure, voluptate voluptatem"/>
       <Section title="card3" 
             isVisible={isVisibleSelection=="card3"}
-
             setIsVisible={()=>setVisibleIsSelecton("card3")}
       setIsVisiblet={()=>setVisibleIsSelecton(false)}
-
-
-
       description="Lorem ipsum, dolor sit amet consectetur adipisicing elit.
        Voluptas, quae voluptate? Consequuntur quisquam unde debitis eaque placeat autem culpa totam! 
        Molestias porro labore autem vitae accusantium provident iure, voluptate voluptatem"/>

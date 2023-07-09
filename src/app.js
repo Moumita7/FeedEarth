@@ -1,16 +1,20 @@
-
-
-
-import React, { Suspense, lazy } from "react"
+import { Suspense, lazy } from "react"
 import  ReactDOM  from "react-dom/client"
 import "/app.css"
 import Header from "./components/Header"
 import Body from "./components/Body"
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
 import About from "./components/About"
+import Cart from "./components/Cart"
+
 import Error from "./components/Error"
 import ResturentMenu from "./components/ResturentMenu";
-import Contact from "./components/Contact"
+import { Provider } from "react-redux"
+import store from "./utils/store"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
+import MainSlider from "./components/Slider/MainSlider"
+
 // import Grocery from "./components/Grocery"
 
 
@@ -23,13 +27,18 @@ let Grocery=lazy(()=>import("./components/Grocery"))
 
 
 const AppLayout=()=>{
-   return <div className="app">
+   return (
+    <div >
+
+
+   <Provider store={store}>
 <Header/>
-{/* <Body/>
- */}
+
+
  <Outlet/>
+    </Provider>
     </div>
-}
+)}
 
 const appRouter=createBrowserRouter(
     [
@@ -46,9 +55,18 @@ const appRouter=createBrowserRouter(
                     element:<About/>
                 }, 
                 {
-                    path:"/contact",
-                    element:<Contact/>
+                    path:"/cart",
+                    element:<Cart/>
                 }, 
+                {
+                    path:"/login",
+                    element:<Login/>
+                }, 
+                {
+                    path:"/signup",
+                    element:<Signup/>
+                }, 
+              
                 {
                     path:"/grosary",
                     element:<Suspense fallback={<h1>Loadin.....</h1>}><Grocery/></Suspense>
