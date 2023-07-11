@@ -4,7 +4,7 @@ import { CiLocationOn } from 'react-icons/ci';
 
 const ResturentCard=(props)=>{
     let {resData}=props
-    console.log("resData",resData)
+    // console.log("resData",resData)
     const {name,area,cuisines,costForTwoMessage,avgRating,costForTwo,deliveryTime,cloudinaryImageId}=resData?.data
 // console.log("cloudinaryImageId",cloudinaryImageId)
 return <div className="m-4 flex flex-col justify-center 

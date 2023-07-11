@@ -14,9 +14,9 @@ let [toggle,setToggle]=useState(false)
 
 let [searchVal,setSearchVal]=useState("")
 
-console.log("body render")
+// console.log("body render")
     useEffect(()=>{
-        console.log("useEffect called")
+        // console.log("useEffect called")
         fetchData()
     },[])
 
@@ -69,7 +69,7 @@ if(onlineStatus===false) return <h1>looks like your inter is gone check your int
          <div className="flex justify-center m-2 bg-red-400" >
          <input value={searchVal}
           onChange={(e)=>setSearchVal(e.target.value)} type="text" className="border border-solid border-black" />
-         <button className="px-3  bg-red-500 caret-white rounded-sm"  
+         <button style={{color:"white" ,borderRadius:"5px",padding:"5px 15px 5px 15px"}} className="px-3  bg-red-500 caret-white rounded-sm"  
          onClick={()=>{
             let filterData=restaurantList.filter((res)=>res.data.name.toLowerCase().includes(searchVal.toLowerCase()))
             // console.log("fil",filterData)
@@ -79,7 +79,7 @@ if(onlineStatus===false) return <h1>looks like your inter is gone check your int
          </div>
 
          <div>
-         <button className="px-3  bg-red-500 caret-white rounded-sm"  onClick={()=>{
+         <button style={{color:"white" ,borderRadius:"10px",padding:"5px 15px 5px 15px"}} className="px-3  bg-red-500 caret-white rounded-sm"  onClick={()=>{
                setFilterResturent(restaurantList.sort((a,b)=>(a.data.deliveryTime)-(b.data.deliveryTime)))
                handleToggle()
          
@@ -91,7 +91,7 @@ if(onlineStatus===false) return <h1>looks like your inter is gone check your int
 
 
          <div>
-            <button className="px-3  bg-red-500 caret-white rounded-sm m-5" onClick=
+            <button style={{color:"white" ,borderRadius:"10px",padding:"5px 15px 5px 15px"}} className="px-3  bg-red-500 caret-white rounded-sm m-5" onClick=
             {
                 ()=>{
         
@@ -105,7 +105,7 @@ if(onlineStatus===false) return <h1>looks like your inter is gone check your int
          </div>
 
          <div>
-         <button className="px-3  bg-red-500 caret-white rounded-sm"  onClick={()=>{
+         <button style={{color:"white" ,borderRadius:"10px",padding:"5px 15px 5px 15px"}} className="px-3  bg-red-500 caret-white rounded-sm"  onClick={()=>{
                let filterDA= restaurantList.filter((res)=>res.data.avgRating>4.3)
                setFilterResturent(filterDA)
                
@@ -115,7 +115,7 @@ if(onlineStatus===false) return <h1>looks like your inter is gone check your int
             }}>Top Rated Resturents</button>
          </div>
          <div>
-            <button className="px-3  bg-red-500 caret-white rounded-sm m-5" onClick={()=>{
+            <button style={{color:"white" ,borderRadius:"10px",padding:"5px 15px 5px 15px"}} className="px-3  bg-red-500 caret-white rounded-sm m-5" onClick={()=>{
                 // console.log("ok")
                 setFilterResturent(restaurantList.sort((a,b)=>(a.data.costForTwo) - (b.data.costForTwo)))
                 handleToggle()
