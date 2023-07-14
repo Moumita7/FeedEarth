@@ -1,0 +1,172 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+} */
+
+
+/* body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #eee;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+
+/* .container {
+    margin-top: 300px;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+
+#form {
+    background: #fff;
+    max-width: 500px;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 10px;
+    /* box-shadow: 3px 3px 40px #545454e8; */
+    /* border: 2px solid black; */
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    position: relative;
+}
+
+#form input,
+#form select {
+    margin: 0.5rem 0;
+    padding: 0.20rem 0.25rem;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    width: 100%;
+}
+
+#form h4 {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.mt {
+    margin-top: 6rem;
+}
+
+#form .input-container {
+    position: relative;
+    font-size: 1rem;
+    color: #333;
+}
+
+#form .input-grp {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+}
+
+#form button {
+    width: 100%;
+    padding: 0.25rem 0.25rem;
+    margin-top: 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    background-color: green;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 9;
+}
+
+
+
+
+#card {
+    height: 180px;
+    width: 100%;
+    /* max-width: 385px; */
+    position: absolute;
+    top: -85px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url("https://images.pexels.com/photos/17465236/pexels-photo-17465236/free-photo-of-summer-pattern-texture-abstract.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+    background-position: center;
+    color: #eee;
+    /* filter: drop-shadow(1px 3px 10px #222); */
+    animation: fadeIn 0.2s linear 1;
+    /* border: 2px solid black; */
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+}
+
+/* @keyframes fadeIn {
+    from {
+        top: -150px;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+} */
+
+/* #card .header {
+    display: flex;
+    justify-content: space-between;
+    height: 0px;
+} */
+
+/* #card .sticker {
+    width: 50px;
+    height: 40px;
+    background-image: url("https://images.pexels.com/photos/728471/pexels-photo-728471.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-position: center;
+    background-size: cover;
+    object-fit: contain;
+    border-radius: 5px;
+} */
+
+/* #card .logo {
+    margin-top: 8rem;
+    margin-left: 18rem;
+    max-width: 60px;
+} */
+
+#card .body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+}
+
+#card .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+}

@@ -13,12 +13,18 @@ const ShimmerCard = () => {
 export const ShimmerMenu = () => {
   return (
     <div className="w-2/3 my-2 m-9 " style={{ margin: "8%" }}>
-      <div className="flex justify-between " style={{ margin: "8%" }}>
+      <div className="flex justify-between " style={{ margin: "9%" }}>
         <Skeleton width={"250px"} height={"200px"} />
         <div>
           <Skeleton width={"100px"} height={"100px"} />
         </div>
+
       </div>
+      <div className="border">
+{/* <Skeleton  /> */}
+
+
+</div>
       <div className="my-4" style={{ margin: "8%" }}>
         <Skeleton width={"300px"} height={"35px"} />
       </div>

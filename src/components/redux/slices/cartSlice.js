@@ -26,6 +26,10 @@ let cartSlice = createSlice({
 
             const filterData=state.items.filter((ele)=>ele.id != action.payload.id)
             state.items=filterData;
+     
+            let total=state.items.reduce((ele, item) => (ele.price)/100 + item); 
+            state.cartTotalAmount=total;
+
        
         },
         decriseItem:(state,action)=>{
@@ -42,7 +46,7 @@ let cartSlice = createSlice({
 
         },
         getTotal:(state)=>{
-            let {total,quentity}=state.items.reduce(
+            var {total,quentity}=state.items.reduce(
                 (cartTotal,cartItem)=>{
                     const {price,quentity}=cartItem
                     const itemTotal= (price/100) * quentity
@@ -55,9 +59,9 @@ let cartSlice = createSlice({
                     total:0,
                     quentity:0,
                 }
-            );
-            state.cartTotalQuentity=quentity;
-            state.cartTotalAmount=total;
+                );
+                state.cartTotalQuentity=quentity;
+                state.cartTotalAmount=total;
 
         },
         clearCart:(state)=>{

@@ -49,7 +49,17 @@ const handleToggle=()=>{
 //checking online status
 const onlineStatus=useOnlineStatus()
 // console.log("online",onlineStatus)
-if(onlineStatus===false) return <h1>looks like your inter is gone check your internet connection</h1>
+if(onlineStatus===false) return (
+    <div className="flex justify-center">
+    <div className="flex flex-col justify-center items-center ">
+
+    <h1 className="">Whoops!</h1>
+    <p className="text-red-600">No internet Connection Found. </p>
+    <p>Check your connection or try again</p>
+    </div>
+        
+    </div>
+)
 
 
 // if(restaurantList.length===0){

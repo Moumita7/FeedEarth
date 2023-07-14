@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import useResturentMenu from "../utils/useResturentMenu";
-import { IMG_URL } from "../utils/constants";
-import { addItem } from "../utils/cartSlice";
+// import { IMG_URL } from "../utils/constants";
+// import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 // import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { ShimmerMenu } from "./ShimmerCard";
+import { IMG_URL } from "../utils/constants";
+import { addItem } from "./redux/slices/cartSlice";
 
 let ResturentMenu = () => {
   const dispatch = useDispatch();
@@ -31,7 +33,12 @@ let ResturentMenu = () => {
   console.log("it",itemCards);
 
   if (!itemCards) {
-    return <h1>data is not </h1>;
+    return (
+      <div className="flex justify-center m-10">
+
+      <h1 className="text-red-500 m-10">oppps this Resturent is unabale right now </h1>
+      </div>
+    )
   } else
     return (
       <>
@@ -111,7 +118,7 @@ let ResturentMenu = () => {
                     className="shadow-md"
                     style={{ width: "130px", borderRadius: "5%" }}
                     src={IMG_URL + ele.card.info.imageId}
-                    alt="ll"
+                    alt={ele.card.info.name} 
                   />
                   <button
                     className="shadow-md"

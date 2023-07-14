@@ -1,19 +1,32 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LOGO_URL } from "../utils/constants";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/UserContext";
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { logoutUser } from "./redux/slices/userSlice";
 
 const Header = () => {
   let onlineStatus = useOnlineStatus();
 
   let { user } = useContext(userContext);
   let cartSelector = useSelector((store) => store.cart.items);
+  let userSelector = useSelector((store) => store.user);
+
+  let dispatch=useDispatch()
+  // console.log("mp",userSelector.isUserLogin)
+
+  let navigate=useNavigate()
+  // console.log("ussss",userSelector.userData
+  // )
+  // console.log("user",useSelector)
+
   let [open, setOpen] = useState(false);
+
+
 
   return (
     <div className="shadow-md w-[100%]  top-0 left-0 ">
@@ -22,6 +35,12 @@ const Header = () => {
           <Link to="/">
             <img className="w-16" src={LOGO_URL} alt="dd" />
           </Link>
+          {userSelector.isUserLogin==true?
+          <p className="text-green-600 uppercase  text-base">{userSelector.userData[0]?.name}</p>
+          :""
+          }
+          {/* <p className="text-green-600 uppercase  text-base">moumita</p> */}
+          {/* {userSelector.map((ele)=><p>{ele.name}</p>)} */}
         </div>
         <div
           onClick={() => setOpen(!open)}
@@ -66,16 +85,24 @@ const Header = () => {
             </li>
           </Link>
 
-          {/* <Link to="/login"><button className="px-3  bg-red-400 caret-white rounded-sm" onClick={()=>loginButton=="Login"? setLoginButton("Logout"):setLoginButton("Login")}>{loginButton}</button></Link> */}
+          {/* <Link to="/login"><button className="px-3  bg-red-400 caret-white rounded-sm" onClick={()=>loginButton=="Login"? setLoginButton("Logout"):setLoginButton("Login")}>Login</button></Link>  */}
 
-          <Link
+
+            
+  {userSelector.isUserLogin==true? 
+  <button  className="px-3  bg-green-400 caret-white rounded-sm  md:ml-8 text-md md:my-0 my-5" onClick={()=>dispatch(logoutUser())}>Logout</button> : 
+  <Link
             className="text-blue-900 hover:text-blue-700 duration-500"
             to="/login"
           >
-            <button className="px-3  bg-green-400 caret-white rounded-sm  md:ml-8 text-md md:my-0 my-5">
-              login
-            </button>
+<button   className="px-3  bg-green-400 caret-white rounded-sm  md:ml-8 text-md md:my-0 my-5">Login</button>
           </Link>
+  }
+           
+     
+          
+
+          
           <Link
             className="text-blue-900 hover:text-blue-700 duration-500"
             to="/grosary"
