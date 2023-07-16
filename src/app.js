@@ -17,6 +17,7 @@ import MainSlider from "./components/Slider/MainSlider"
 import store from "./components/redux/store"
 import Registrasion from "./components/Registrasion"
 import Payment from "./components/Payment"
+import Footer from "./components/Footer"
 
 // import Grocery from "./components/Grocery"
 
@@ -39,6 +40,7 @@ const AppLayout=()=>{
 
 
  <Outlet/>
+ <Footer/>
     </Provider>
     {/* </ChakraProvider> */}
     </div>
