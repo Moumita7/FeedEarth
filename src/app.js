@@ -40,7 +40,7 @@ const AppLayout=()=>{
 
 
  <Outlet/>
- <Footer/>
+
     </Provider>
     {/* </ChakraProvider> */}
     </div>
