@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import ResturentCard from "./ResturentCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -9,46 +8,45 @@ import "./simmer.css";
 import Footer from "./Footer";
 
 const Body = () => {
-  let [restaurantList, setResturentList] = useState([]);
-  let [filterRestaurant, setFilterResturent] = useState([]);
-  let [toggle, setToggle] = useState(false);
+  const [restaurantList, setResturentList] = useState([]);
+  const [filterRestaurant, setFilterResturent] = useState([]);
+  const [toggle, setToggle] = useState(false);
+  const [searchVal, setSearchVal] = useState("");
+  const [loading, setLoading] = useState(true); // Introducing loading state
+  const [error, setError] = useState(null); // Introducing error state
 
-  let [searchVal, setSearchVal] = useState("");
-
-  // console.log("body render")
   useEffect(() => {
-    // console.log("useEffect called")
     fetchData();
   }, []);
 
-  let fetchData = async () => {
-    let data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5135084&lng=88.402884&page_type=DESKTOP_WEB_LISTING"
-    );
+  const fetchData = async () => {
+    try {
+      let data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5135084&lng=88.402884&page_type=DESKTOP_WEB_LISTING"
+      );
 
-    // let data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING")
-    let json = await data.json();
-    // console.log(json)
-    //optional channing
-    setFilterResturent(json?.data?.cards[2]?.data?.data?.cards);
-    setResturentList(json?.data?.cards[2]?.data?.data?.cards);
+      if (!data.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      let json = await data.json();
+      setFilterResturent(json?.data?.cards[2]?.data?.data?.cards);
+      setResturentList(json?.data?.cards[2]?.data?.data?.cards);
+      setLoading(false); // Data fetched successfully, set loading to false
+    } catch (error) {
+      setError(error.message);
+      setLoading(false); // Error occurred, set loading to false
+    }
   };
+////
 
   const handleToggle = () => {
     setToggle(!toggle);
   };
 
-  //high to low
-  // const highToLow=()=>{
-  //             let filterData=restaurantList.sort((a,b)=>(b.data.costForTwo)-(a.data.costForTwo))
-  //                 setFilterResturent((prevData)=>[...prevData,filterData])
-
-  //             }
-
-  // console.log("ff",filterRestaurant)
-  //checking online status
+   
   const onlineStatus = useOnlineStatus();
-  // console.log("online",onlineStatus)
+   
   if (onlineStatus === false)
     return (
       <div className="flex justify-center">
@@ -60,11 +58,7 @@ const Body = () => {
       </div>
     );
 
-  // if(restaurantList.length===0){
-  // // if(restaurantList===[]){
-
-  //     return <Shimmer/>
-  // }
+   
 
   return (
     <div className="  ">
@@ -91,7 +85,7 @@ const Body = () => {
                 let filterData = restaurantList.filter((res) =>
                   res.data.name.toLowerCase().includes(searchVal.toLowerCase())
                 );
-                // console.log("fil",filterData)
+              
                 setFilterResturent(filterData);
               }}
             >
