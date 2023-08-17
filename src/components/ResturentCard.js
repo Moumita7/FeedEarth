@@ -4,13 +4,13 @@ import { CiLocationOn } from 'react-icons/ci';
 
 const ResturentCard=(props)=>{
     let {resData}=props
-    // console.log("resData",resData)
-    const {name,area,cuisines,costForTwoMessage,avgRating,costForTwo,deliveryTime,cloudinaryImageId}=resData?.data
+    console.log("resData",resData)
+    const {name,area,cuisines,costForTwoMessage,avgRating,costForTwo,deliveryTime,cloudinaryImageId}=resData?.info
 // console.log("cloudinaryImageId",cloudinaryImageId)
 return <div className="m-4 flex flex-col justify-center 
  p-4 w-[300px] shadow-md rounded-lg bg-gray-100 hover:bg-gray-200" >
     <img className="w-[250px] rounded-md"
-    src={IMG_URL+resData.data.cloudinaryImageId} />
+    src={IMG_URL+resData.info.cloudinaryImageId} />
 
      <h3 className="font-bold text-lg py-1">{name}</h3>
    

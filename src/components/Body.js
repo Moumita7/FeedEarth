@@ -28,10 +28,17 @@ const Body = () => {
 
     // let data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING")
     let json = await data.json();
-    // console.log(json)
+    // console.log("OO",json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
+    console.log("OO",json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle.restaurants
+
+
+    )
+
     //optional channing
-    setFilterResturent(json?.data?.cards[2]?.data?.data?.cards);
-    setResturentList(json?.data?.cards[2]?.data?.data?.cards);
+    // setFilterResturent(json?.data?.cards[2]?.data?.data?.cards);
+    // setResturentList(json?.data?.cards[2]?.data?.data?.cards);
+     setFilterResturent(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+     setResturentList(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   const handleToggle = () => {
@@ -195,13 +202,13 @@ const Body = () => {
       <div className="flex flex-wrap justify-center">
         {/* <div> */}
 
-        {filterRestaurant.length == 0 ? (
+        {filterRestaurant?.length == 0 ? (
           <Shimmer />
         ) : (
-          filterRestaurant.map((resturent) => (
+          filterRestaurant?.map((resturent) => (
             <Link
-              key={resturent.data.id}
-              to={"/resturent/" + resturent.data.id}
+              key={resturent.info.id}
+              to={"/resturent/" + resturent.info.id}
             >
               <ResturentCard resData={resturent} />
             </Link>

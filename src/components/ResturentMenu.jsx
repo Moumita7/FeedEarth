@@ -28,6 +28,8 @@ let ResturentMenu = () => {
   let { name, costForTwoMessage, cloudinaryImageId, avgRating } =
     resInfo?.cards[0]?.card?.card?.info;
   // console.log(name,cuisines,costForTwoMenu)
+
+  console.log("resinfo",resInfo.cards[2].groupedCard.cardGroupMap)
   let { itemCards } =
     resInfo.cards[2].groupedCard.cardGroupMap.REGULAR.cards[4].card.card;
   console.log("it",itemCards);
